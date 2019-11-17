@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">mrrelief</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="mood_score">Mood Score</string>
+    <string name="mood_journal_entry">Mood Journal Entry</string>
+</resources>

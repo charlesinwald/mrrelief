@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:id="@+id/moodlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bootstrapBrand="primary"
+        app:bootstrapHeading="h4"
+        app:roundedCorners="false"
+        android:text="@string/mood_score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:max="10"
+        android:progress="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/moodlabel" />
+
+    <com.beardedhen.androidbootstrap.BootstrapLabel
+        android:id="@+id/journallabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bootstrapBrand="primary"
+        app:bootstrapHeading="h3"
+        app:roundedCorners="false"
+        android:text="@string/mood_journal_entry"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/seekBar"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        />
+
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/journalentry"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:bootstrapSize="md"
+        app:bootstrapBrand="info"
+        app:layout_constraintTop_toBottomOf="@id/journallabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        />
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/saveButton"
+        app:layout_constraintTop_toBottomOf="@id/journalentry"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:bootstrapBrand="success"
+        app:bootstrapSize="lg"
+        app:buttonMode="regular"
+        app:showOutline="false"
+        app:roundedCorners="true"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
