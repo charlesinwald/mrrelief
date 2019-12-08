@@ -10,11 +10,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -65,8 +68,25 @@ public class DashboardFragment extends Fragment implements SeekBar.OnSeekBarChan
 
         createChart(root);
 
-
+        Button testButton = (Button) root.findViewById(R.id.button2);
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveToGallery();
+            }
+        });
         return root;
+    }
+
+    private void saveToGallery() {
+        chart.saveToGallery("mrrelief");
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this.getContext(), "Mr.Relief")
+                .setContentTitle("Mr.Relief")
+                .setContentText("Graph Saved!")
+                .setSmallIcon(android.R.drawable.ic_menu_my_calendar)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this.getContext());
+        notificationManager.notify(1, builder.build());
     }
 
     private void createChart(View root) {
@@ -237,10 +257,9 @@ public class DashboardFragment extends Fragment implements SeekBar.OnSeekBarChan
     }
 
 
-
     @Override
     public void onValueSelected(Entry e, Highlight h) {
-        Log.d("VALUE","VALUE SELECTED");
+        Log.d("VALUE", "VALUE SELECTED");
         MoodEntry currententry = moodentries.get((int) e.getX());
         new AlertDialog.Builder(this.getContext())
                 .setTitle(currententry.datetime)
